@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'vercel' => [
+        'url' => env('VERCEL_URL'),
+        'cache_key_raw' => env('CACHE_KEY_RAW'),
+        'cache_key_transformed' => env('CACHE_KEY_TRANSFORMED'),
+    ],
+
 ];
