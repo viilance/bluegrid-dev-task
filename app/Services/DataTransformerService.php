@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Cache;
 class DataTransformerService
 {
     protected string $cacheKey;
-    protected int $cacheDuration = 30;
+    protected int $cacheDuration = 3600; // cache data for an hour
 
     public function __construct()
     {

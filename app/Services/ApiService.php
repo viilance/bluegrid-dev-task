@@ -12,7 +12,7 @@ class ApiService implements ApiServiceInterface
 {
     protected string $cacheKey;
     protected string $url;
-    protected int $cacheDuration = 30;
+    protected int $cacheDuration = 3600; // cache data for an hour
 
     public function __construct()
     {

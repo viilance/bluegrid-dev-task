@@ -23,6 +23,7 @@ services:
             - sail
         depends_on:
             - mysql
+            - redis
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -47,6 +48,12 @@ services:
                 - '-p${DB_PASSWORD}'
             retries: 3
             timeout: 5s
+    redis:
+        image: 'redis:alpine'
+        ports:
+            - '6379:6379'
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge

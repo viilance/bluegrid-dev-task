@@ -8,6 +8,29 @@ use Illuminate\Support\Facades\DB;
 
 class DataStorageService
 {
+    public function isDataStored(array $data): bool
+    {
+        foreach ($data['items'] as $item) {
+            $segments = $this->getUrlSegments($item['fileUrl']);
+
+            if (empty($segments)) {
+                continue;
+            }
+
+            $directoryName = $segments[count($segments) - 2] ?? null;
+            $fileName = end($segments);
+
+            if ($directoryName && $fileName) {
+                $directory = Directory::where('name', $directoryName)->first();
+                if (!$directory || !File::where('name', $fileName)->where('directory_id', $directory->id)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     public function storeData(array $data): void
     {
         DB::transaction(function () use ($data) {
