@@ -14,8 +14,8 @@ Follow these steps to set up the project:
 ### 1. Clone the Repository
 
 ```
-git clone <repository-url>
-cd <repository-directory>
+git clone https://github.com/viilance/bluegrid-dev-task.git
+cd bluegrid-dev-task
 ```
 
 ### 2. Install Dependencies
